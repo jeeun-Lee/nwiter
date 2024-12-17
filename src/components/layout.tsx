@@ -2,7 +2,7 @@ import {Link, Outlet, useNavigate} from "react-router-dom";
 import styled from "styled-components";
 import { auth } from "../routes/firebase";
 const Wrapper = styled.div`
-  display: grid;
+ display: grid;
   gap: 20px;
   grid-template-columns: 1fr 4fr;
   height: 100%;
@@ -44,9 +44,10 @@ export default function Layout() {
             await auth.signOut();
             navigate("/login");
         }
-    }
+    };
     return (
-        <> < Wrapper > <Menu>
+    <Wrapper>
+         <Menu>
             <MenuItem>
                 <Link to="/">
                     <svg
@@ -98,8 +99,7 @@ export default function Layout() {
             </MenuItem>
 
         </Menu>
+        <Outlet/>
     </Wrapper>
-    <Outlet/>
-</>
-    )
+    );
 }
